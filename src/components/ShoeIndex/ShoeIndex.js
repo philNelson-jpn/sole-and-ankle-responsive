@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { QUERIES, WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -9,12 +9,29 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+const ShoeBreadCrumbs = () => {
+  return (
+    <Breadcrumbs>
+    <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale/shoes">
+      Shoes
+    </Breadcrumbs.Crumb>
+  </Breadcrumbs>
+  )
+}
+
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
-          <Title>Running</Title>
+          <div>
+        <MobileBreadCrumbs>
+        <ShoeBreadCrumbs />
+        </MobileBreadCrumbs>
+        <Title>Running</Title>
+        </div>
           <Select
             label="Sort"
             value={sortId}
@@ -28,19 +45,17 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+        <DesktopBreadCrumbs>
+        <ShoeBreadCrumbs />
+        </DesktopBreadCrumbs>
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
     </Wrapper>
   );
 };
+
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,8 +64,28 @@ const Wrapper = styled.div`
   gap: 32px;
 `;
 
+const MobileBreadCrumbs = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndSmaller}{
+    display: block;
+  }
+`;
+
+const DesktopBreadCrumbs = styled.div`
+  display: block;
+
+  @media ${QUERIES.tabletAndSmaller}{
+    display: none;
+  }
+`;
+
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tabletAndSmaller}{
+  display: none;
+}
 `;
 
 const MainColumn = styled.div`
