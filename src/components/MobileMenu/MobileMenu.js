@@ -3,8 +3,6 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { QUERIES, WEIGHTS } from '../../constants';
-
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
@@ -71,7 +69,7 @@ const Nav = styled.nav`
 const NavLink = styled.a`
   text-decoration: none;
   color: var(--color-gray-900);
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
   text-transform: uppercase;
   font-size: 1.125rem;
 
@@ -90,7 +88,7 @@ const Footer = styled.footer`
 const FooterLink = styled.a`
   text-decoration: none;
   color: var(--color-gray-700);
-  font-weight: ${WEIGHTS.small};
+  font-weight: var(--weight-normal);
 `;
 
 const Filler = styled.div`

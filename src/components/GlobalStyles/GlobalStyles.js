@@ -84,6 +84,10 @@ html {
 
   /* CSS Variables Weights */
 
+  --weight-normal: 500;
+  --weight-medium: 600;
+  --weight-bold: 800;
+
   /*
     Silence the warning about missing Reach Dialog styles
   */
