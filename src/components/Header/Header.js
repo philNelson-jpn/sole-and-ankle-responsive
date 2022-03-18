@@ -41,7 +41,7 @@ const Header = () => {
             <Icon id="search" />
             <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
-          <UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" />
             <VisuallyHidden>Menu</VisuallyHidden>
           </UnstyledButton>
@@ -51,7 +51,7 @@ const Header = () => {
 
       <MobileMenu
         isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(true)}
+        onDismiss={() => setShowMobileMenu(false)}
       />
     </header>
   );
