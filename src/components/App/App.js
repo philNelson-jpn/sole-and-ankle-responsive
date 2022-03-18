@@ -22,17 +22,13 @@ const App = () => {
 const Main = styled.main`
   padding: 64px 32px;
 
-  /* @media ${QUERIES.laptopAndSmaller}{
-    background: hsl(0deg 20% 80%);
-  }
-
   @media ${QUERIES.tabletAndSmaller}{
-    background: hsl(0deg 10% 70%);
+    padding: 48px 32px;
   }
 
   @media ${QUERIES.phoneAndSmaller}{
-    background: hsl(0deg 5% 60%);
-  } */
+    padding: 48px 16px;
+  }
 `;
 
 export default App;

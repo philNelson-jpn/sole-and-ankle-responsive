@@ -51,7 +51,7 @@ const Header = () => {
 
       <MobileMenu
         isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
+        onDismiss={() => setShowMobileMenu(true)}
       />
     </header>
   );
