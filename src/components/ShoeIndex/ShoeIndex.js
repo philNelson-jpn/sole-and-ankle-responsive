@@ -26,12 +26,12 @@ const ShoeIndex = ({ sortId, setSortId }) => {
     <Wrapper>
       <MainColumn>
         <Header>
-          <div>
+          <MobileBreadCrumbWrapper>
         <MobileBreadCrumbs>
         <ShoeBreadCrumbs />
         </MobileBreadCrumbs>
         <Title>Running</Title>
-        </div>
+        </MobileBreadCrumbWrapper>
           <Select
             label="Sort"
             value={sortId}
@@ -55,7 +55,10 @@ const ShoeIndex = ({ sortId, setSortId }) => {
   );
 };
 
-
+const MobileBreadCrumbWrapper = styled.div`
+  /* display: flex;
+  flex-direction: column; */
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -95,7 +98,7 @@ const MainColumn = styled.div`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 `;
 
 const Title = styled.h2`
