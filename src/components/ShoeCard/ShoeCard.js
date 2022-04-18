@@ -35,11 +35,11 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
-          {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
+        </ImageWrapper>
+        {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
           {variant === 'new-release' && (
             <NewFlag>Just released!</NewFlag>
           )}
-        </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
@@ -70,40 +70,28 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  position: relative;
+`;
 
 const ImageWrapper = styled.div`
-  position: relative;
   overflow: hidden;
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Image = styled.img`
+  display: block;
   width: 100%;
-  border-radius: 16px 16px 4px 4px;
-  animation: mouse-leave 400ms ease-out forwards;
+  transform-origin: 50% 75%;
+  transition: transform 600ms;
 
-  @keyframes mouse-in {
-    0% {
-      transform: scale(1) translateY(0px);
-    }
-    100% {
-      transform: scale(1.1) translateY(-10px);
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      ${Link}:hover &,
+      ${Link}:focus &{
+      transform: scale(1.1);
+      transition: transform 200ms;
     }
   }
-  @keyframes mouse-leave {
-    0% {
-      transform: scale(1.1) translateY(-10px);
-    }
-    100% {
-      transform: scale(1) translateY(0px);
-    }
-  }
-
-  ${ImageWrapper}:hover &{
-    @media (prefers-reduced-motion: no-preference){
-  animation: mouse-in 200ms ease-in forwards;
-    }
-}
 `;
 
 const Row = styled.div`
