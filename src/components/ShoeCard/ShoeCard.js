@@ -74,11 +74,36 @@ const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
   width: 100%;
   border-radius: 16px 16px 4px 4px;
+  animation: mouse-leave 400ms ease-out forwards;
+
+  @keyframes mouse-in {
+    0% {
+      transform: scale(1) translateY(0px);
+    }
+    100% {
+      transform: scale(1.1) translateY(-10px);
+    }
+  }
+  @keyframes mouse-leave {
+    0% {
+      transform: scale(1.1) translateY(-10px);
+    }
+    100% {
+      transform: scale(1) translateY(0px);
+    }
+  }
+
+  ${ImageWrapper}:hover &{
+    @media (prefers-reduced-motion: no-preference){
+  animation: mouse-in 200ms ease-in forwards;
+    }
+}
 `;
 
 const Row = styled.div`
