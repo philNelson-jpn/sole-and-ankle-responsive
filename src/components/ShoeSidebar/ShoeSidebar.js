@@ -29,6 +29,18 @@ const Link = styled.a`
   font-weight: var(--weight-medium);
   color: var(--color-gray-900);
   line-height: 2;
+
+  will-change: transform;
+  transform-origin: left center;
+  transition: transform 400ms;
+
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      &:hover,
+      &:focus {
+      transform: scale(1.2);
+      transition: transform 200ms;
+    }
+  }
 `;
 
 const ActiveLink = styled(Link)`

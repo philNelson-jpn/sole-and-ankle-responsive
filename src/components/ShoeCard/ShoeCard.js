@@ -82,6 +82,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   display: block;
   width: 100%;
+  will-change: transform;
   transform-origin: 50% 75%;
   transition: transform 600ms;
 
@@ -103,11 +104,37 @@ const Row = styled.div`
 const Name = styled.h3`
   font-weight: var(--weight-medium);
   color: var(--color-gray-900);
+
+  will-change: transform;
+  transform-origin: left center;
+  transition: transform 400ms;
+
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      ${Link}:hover &,
+      ${Link}:focus &{
+      transform: scale(1.1);
+      transition: transform 200ms;
+    }
+  }
 `;
 
 const Price = styled.span`
+  display: inline-block;
   color: var(--color);
   text-decoration: var(--text-decoration);
+
+  will-change: transform, color;
+  transform-origin: left center;
+  transition: transform 400ms, opacity 400ms;
+
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      ${Link}:hover &,
+      ${Link}:focus &{
+      opacity: 0.5;
+      transform: scale(0.9);
+      transition: transform 200ms, opacity 200ms;
+    }
+  }
 `;
 
 const ColorInfo = styled.p`
@@ -117,6 +144,18 @@ const ColorInfo = styled.p`
 const SalePrice = styled.span`
   font-weight: var(--weight-medium);
   color: var(--color-primary);
+
+  will-change: transform;
+  transform-origin: bottom right;
+  transition: transform 400ms;
+
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      ${Link}:hover &,
+      ${Link}:focus &{
+      transform: scale(1.5);
+      transition: transform 200ms;
+    }
+  }
 `;
 
 const Flag = styled.div`
@@ -131,6 +170,16 @@ const Flag = styled.div`
   font-weight: var(--weight-bold);
   color: var(--color-white);
   border-radius: 2px;
+  will-change: transform;
+  transition: transform 400ms;
+
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+      ${Link}:hover &,
+      ${Link}:focus &{
+      transform: rotate(8deg) scale(1.1);
+      transition: transform 200ms;
+    }
+  }
 `;
 
 const SaleFlag = styled(Flag)`
