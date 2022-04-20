@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { QUERIES } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import Icon from '../Icon';
 import UnstyledButton from '../UnstyledButton';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import VisuallyHidden from '../VisuallyHidden';
+import { Link } from 'react-feather';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -74,7 +75,6 @@ const MainHeader = styled.div`
     padding-left: 16px;
     padding-right: 16px;
   }
-
 `;
 
 const DesktopNav = styled.nav`
@@ -84,6 +84,10 @@ const DesktopNav = styled.nav`
 
   @media ${QUERIES.tabletAndSmaller}{
     display: none;
+  }
+
+  &:first-child {
+    color: var(--color-secondary);
   }
 `;
 

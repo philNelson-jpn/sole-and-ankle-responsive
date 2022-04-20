@@ -32,13 +32,20 @@ const Link = styled.a`
 
   will-change: transform;
   transform-origin: left center;
-  transition: transform 400ms;
+  transition: transform 600ms;
 
   @media (hover:hover) and (prefers-reduced-motion: no-preference){
       &:hover,
       &:focus {
-      transform: scale(1.2);
       transition: transform 200ms;
+
+      &:nth-child(odd){
+        transform: rotate(-2deg) scale(1.3);
+      }
+
+      &:nth-child(even){
+        transform: rotate(2deg) scale(1.4);
+      }
     }
   }
 `;
